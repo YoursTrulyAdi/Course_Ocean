@@ -8,8 +8,31 @@ require("dotenv").config();
 //importing schemas
 const {userModel, adminModel} = require("./db");
 
-//connecting to mongoose
+//declaring schemas for zod
+const signupSchemaUser = z.object({
+    email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+    password: z.string().min(6).max(100),
+    name: z.string().min(2).max(50)
+});
 
+const signinSchemaUser = z.object({
+    email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+    password: z.string().min(6).max(100)
+});
+
+const signupSchemaAdmin = z.object({
+    email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+    password: z.string().min(6).max(100),
+    name: z.string().min(2).max(50),
+    role: z.string().min(2).max(20)
+});
+
+const signinSchemaAdmin = z.object({
+    email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+    password: z.string().min(6).max(100)
+});
+
+//connecting to mongoose
 mongoose.connect(process.env.MONGO_URL);
 
 //starting app
@@ -41,7 +64,7 @@ async function userAuth(req, res, next){
     }
 }
 
-async function adminAuth(){
+async function adminAuth(req, res, next){
     let token = req.headers.authorization;
 
     let decoded = jwt.verify(token, JWT_SECRET);
@@ -65,7 +88,16 @@ async function adminAuth(){
 
 //user endpoints
 app.post("/user/signup", async (req, res) => {
-    let {email, password, name} = req.body;
+    let parsed = signupSchemaUser.safeParse(req.body);
+
+    if(!parsed.success){
+        res.status(404).json({
+            err: "Error: Invalid format"
+        })
+        return;
+    }
+
+    let {email, password, name} = parsed.data;
 
     //check if user already exists
     let user = await userModel.findOne({
@@ -95,7 +127,16 @@ app.post("/user/signup", async (req, res) => {
 })
 
 app.post("/user/signin", async (req, res) => {
-    let {email, password} = req.body;
+    let parsed = signinSchemaUser.safeParse(req.body);
+
+    if(!parsed.success){
+        res.status(404).json({
+            err: "Error: Invalid format"
+        })
+        return;
+    }
+
+    let {email, password} = parsed.data;
 
     const user = await userModel.findOne({
         email: email
@@ -145,7 +186,16 @@ app.get("/user/course", (req, res) => {
 
 //admin endpoints
 app.post("/admin/signup", async (req, res) => {
-    let {email, password, name, role} = req.body;
+    let parsed = signupSchemaAdmin.safeParse(req.body);
+
+    if(!parsed.success){
+        res.status(404).json({
+            err: "Error: Invalid format"
+        })
+        return;
+    }
+
+    let {email, password, name, role} = parsed.data;
 
     //check if user already exists
     let admin = await adminModel.findOne({
@@ -176,7 +226,15 @@ app.post("/admin/signup", async (req, res) => {
 })
 
 app.post("/admin/signin", async (req, res) => {
-    let {email, password} = req.body;
+    let parsed = signinSchemaAdmin.safeParse(req.body);
+
+    if(!parsed.success){
+        res.status(404).json({
+            err: "Error: Invalid format"
+        })
+        return;
+    }
+    let {email, password} = parsed.data;
 
     const admin = await adminModel.findOne({
         email: email
