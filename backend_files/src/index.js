@@ -2,10 +2,11 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const z = require("zod");
 require("dotenv").config();
 
 //importing schemas
-const userModel = require("./db");
+const {userModel, adminModel} = require("./db");
 
 //connecting to mongoose
 
@@ -40,13 +41,30 @@ async function userAuth(req, res, next){
     }
 }
 
-function adminAuth(){
+async function adminAuth(){
+    let token = req.headers.authorization;
 
+    let decoded = jwt.verify(token, JWT_SECRET);
+
+    const admin = await adminModel.findOne({
+        email: decoded.email
+    })
+
+    if(admin){
+        req.userId = admin._id;
+
+        next();
+    }
+    else{
+        res.status(404).json({
+            err: "Error: Unauthorized"
+        })
+    }
 }
 
 
 //user endpoints
-app.post("/userSignup", async (req, res) => {
+app.post("/user/signup", async (req, res) => {
     let {email, password, name} = req.body;
 
     //check if user already exists
@@ -76,7 +94,7 @@ app.post("/userSignup", async (req, res) => {
     })
 })
 
-app.post("/userLogin", async (req, res) => {
+app.post("/user/signin", async (req, res) => {
     let {email, password} = req.body;
 
     const user = await userModel.findOne({
@@ -111,14 +129,14 @@ app.post("/userLogin", async (req, res) => {
     }
 })
 
-app.post("/purshaseCourse", userAuth, (req, res) => {
+app.post("/user/course", userAuth, (req, res) => {
     res.json({
         msg: "This is purshaseCourse",
         userId: req.userId
     })
 })
 
-app.get("/viewCourse", (req, res) => {
+app.get("/user/course", (req, res) => {
     res.json({
         msg: "This is viewCourse"
     })
@@ -126,31 +144,87 @@ app.get("/viewCourse", (req, res) => {
 
 
 //admin endpoints
-app.post("/adminSignup", (req, res) => {
+app.post("/admin/signup", async (req, res) => {
+    let {email, password, name, role} = req.body;
+
+    //check if user already exists
+    let admin = await adminModel.findOne({
+        email: email
+    })
+
+    if(admin){
+        res.status(404).json({
+            err: "Admin already exists!"
+        })
+        return;
+    }
+
+    //main
+    let saltRounds = 10;
+    let hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    await adminModel.create({
+        email: email,
+        password: hashedPassword,
+        name: name,
+        role: role
+    })
+
     res.json({
-        msg: "This is adminSignup"
+        msg: "Admin sign up Successfull"
     })
 })
 
-app.post("/adminLogin", (req, res) => {
+app.post("/admin/signin", async (req, res) => {
+    let {email, password} = req.body;
+
+    const admin = await adminModel.findOne({
+        email: email
+    })
+
+    if(admin){
+        //check if password is correct or not
+        let isPasswordMatched = await bcrypt.compare(password, admin.password);
+
+        if(!isPasswordMatched){
+            res.status(404).json({
+                err: "Error: Password is incorrect"
+            })
+            return;
+        }
+
+        //generate token
+        let token = jwt.sign({
+            email: email
+        }, JWT_SECRET);
+
+        res.json({
+            msg: "Admin login Successfull",
+            token: token
+        })
+    }
+    else{
+        res.status(404).json({
+            err: "Error: Invalid Credentials"
+        })
+    }
+})
+
+//send a post request to create a course
+app.post("/admin/course", adminAuth, (req, res) => {
     res.json({
-        msg: "This is adminLogin"
+        msg: "This is createCourse",
+        userId: req.userId
     })
 })
 
-app.post("/createCourse", userAuth, (req, res) => {
-    res.json({
-        msg: "This is createCourse"
-    })
-})
-
-app.delete("/deleteCourse", (req, res) => {
+app.delete("/admin/course", (req, res) => {
     res.json({
         msg: "This is deleteCourse"
     })
 })
 
-app.post("/addCourseContent", (req, res) => {
+app.post("/admin/course", (req, res) => {
     res.json({
         msg: "This is addCourseContent"
     })

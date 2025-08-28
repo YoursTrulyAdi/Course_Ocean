@@ -9,10 +9,19 @@ const User = new Schema({
     name: {type: String}
 })
 
+const Admin = new Schema({
+    email: {type: String, unique: true},
+    password: {type: String},
+    name: {type: String},
+    role: {type: String}
+})
 
 
 const userModel = mongoose.model("users", User);
+const adminModel = mongoose.model("admins", Admin);
 
 
-
-module.exports = userModel;
+module.exports = {
+    userModel: userModel,
+    adminModel: adminModel
+};
