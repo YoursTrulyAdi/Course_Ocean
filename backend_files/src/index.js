@@ -282,7 +282,7 @@ app.delete("/admin/course", (req, res) => {
     })
 })
 
-app.post("/admin/course", (req, res) => {
+app.put("/admin/course", (req, res) => {
     res.json({
         msg: "This is addCourseContent"
     })
