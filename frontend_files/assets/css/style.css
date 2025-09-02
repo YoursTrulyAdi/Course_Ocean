@@ -1,0 +1,279 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Delius", cursive;
+    font-size: 16px;
+}
+
+:root{
+    --backgroud-color: #433878;
+    --background-color-light: #F8F7F4;
+    --font-color: #E4B1F0;
+}
+
+body{
+    background-color: var(--background-color-light);
+}
+
+/* header */
+.header-box{
+    border: 2px solid red;
+    /* width: 60%; */
+    height: 45vh;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.header-box .header-title{
+    border: 2px solid blue;
+    /* margin: 150px 0 0 0; */
+}
+
+.header-box .header-title .title-desc{
+    border: 2px solid brown;
+    text-align: center;
+    font-size: 50px;
+}
+
+.header-box .header-title .title-head{
+    border: 2px solid brown;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 150px;
+}
+
+.header-box .nav-container{
+    border: 2px solid red; /*add background and also zindex*/
+    /* width: 200px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    position: fixed;
+    top: 75px;
+    right: 75px;
+    z-index: 10;
+}
+.header-box .nav-container .login-btn{
+    border: 2px solid cyan;
+    
+    
+}
+
+.login-btn button{
+    border: none;
+    background: none;
+
+    background-color: var(--font-color);
+    color: var(--backgroud-color);
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 3px 15px;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.header-box .nav-container .nav-hamburger{
+    border: 2px solid cyan;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-hamburger button{
+    border: none;
+    background: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.nav-hamburger button span{
+    /* color: var(--font-color); */
+    font-size: 35px;
+}
+
+/* navbar -  replace it with hamburger and a toggle darkmode button */
+
+.header-box .navbar{
+    border: 2px solid greenyellow;
+    
+    margin: 50px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-box .navbar .nav-items{
+    border: 2px solid purple;
+    list-style: none;
+    
+    display: flex;
+    gap: 100px;
+}
+.header-box .navbar .mode-log-box{
+    border: 2px solid purple;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-box .navbar .mode-log-box .mode-button{
+    border: 2px solid purple;
+    padding: 0 20px;
+    max-width: 100px;
+}
+.header-box .navbar .mode-log-box .log-box{
+    border: 2px solid purple;
+    padding: 0 50px;
+    max-width: 200px;
+}
+
+/* Main section */
+.main-box {
+    border: 2px solid red;
+
+}
+
+/* wave animations */
+.main-box .wave-container{
+    border: 2px solid lawngreen;
+
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.main-box .wave-container img{
+    /* border: 2px solid lawngreen; */
+
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 70vh;
+    top: -100px;
+    z-index: -1;
+}
+
+.main-box .main-course-container{
+    border: 2px solid lawngreen;
+    background-color: var(--backgroud-color);
+
+    margin: 58vh 0 0 0;
+    height: auto;/*change it to auto later*/
+}
+
+.main-box .course-box-head{
+    border: 2px solid blue;
+
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px 0;
+}
+.main-box .course-box-head .course-head-heading{
+    border: 2px solid brown;
+
+    font-size: 20px;
+    color: var(--font-color);
+}
+.main-box .course-box-head .course-head-desc{
+    border: 2px solid brown;
+
+    font-size: 40px;
+    font-weight: bolder;
+    color: var(--font-color);
+}
+
+.main-box .course-content-box{
+    text-decoration: none;
+    border: 2px solid pink;
+    margin: auto;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* course card styling */
+.main-box .course-content-box .course-card{
+    border: 2px solid blue;
+    height: 426px;
+    width: 368px;
+    overflow: hidden;
+    
+    border-radius: 20px;
+}
+
+.course-card .course-card-thumb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.course-card .course-card-thumb img{
+    width: 100%;
+}
+.course-card .course-card-head{
+    border: 2px solid brown;
+    text-align: center;
+    margin: 10px 0;
+    text-decoration: none;
+    padding: 0 15px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.course-card .course-card-desc{
+    border: 2px solid cyan;
+    text-align: center;
+    padding: 0 15px;
+}
+
+
+
+
+/* our partners styles */
+.main-box .main-partner-container .partner-head{
+    border: 2px solid blue;
+    background-color: var(--background-color-light);
+
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px 0;
+}
+.main-box .main-partner-container .partner-head-heading{
+    border: 2px solid brown;
+
+    font-size: 20px;
+    color: var(--font-color);
+}
+.main-box .main-partner-container .partner-head-desc{
+    border: 2px solid brown;
+
+    font-size: 40px;
+    font-weight: bolder;
+    color: var(--font-color);
+}
+
+
+/* Footer section */
+/* .footer-box{
+
+} */
