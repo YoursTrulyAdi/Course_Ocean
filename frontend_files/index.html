@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Ocean | The Internet's Teaching Hub</title>
+    
+    <link rel="icon" type="image/png" href="/frontend_files/assets/images/favicon.jpeg">
+
 
     <!-- linking font family -->
     <style>@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');</style>
@@ -22,7 +25,7 @@
         </section>
         <section class="nav-container">
             <div class="login-btn">
-                <button onclick="location.href='/user/signin'">Login</button>
+                <button onclick="location.href='/'">Login</button>
             </div>
             <div class="nav-hamburger">
                 <button>
@@ -35,9 +38,14 @@
     <main class="main-box">
         <section class="wave-container">
             <img src="/frontend_files/assets/images/wave-1.png" alt="">
+            <div class="floating-arrow" id="arrow">
+                <a href="#">
+                    <img src="/frontend_files/assets/images/arrow.png" alt="">
+                </a>
+            </div>
         </section>
         <section class="main-course-container">
-            <div class="course-box-head">
+            <div class="course-box-head" id="target">
                 <div class="course-head-heading">Explore Our Courses</div>
                 <div class="course-head-desc">Made with 💜 by our finest teachers</div>
             </div>
@@ -87,24 +95,37 @@
                     <p class="course-card-desc">Master cloud architecture with this comprehensive certification course. Gain hands-on expertise in designing, managing, and securing scalable cloud solutions. Build professional skills, prepare for certification, and accelerate your career in cloud computing excellence.</p>
                 </div>
             </div>
-
-            <!-- our partners html -->
-            <div class="main-partner-container">
-                <div class="partner-head">
-                    <div class="partner-head-heading">Thanks To Them For Making It Possible</div>
-                    <div class="partner-head-desc">From Our Beloved💜Sponsors</div>
-                </div>
-            </div>
         </section>
+            
+        <!-- our partners html -->
+        <section class="main-partner-container">
+            <div class="partner-head">
+                <div class="partner-head-heading">Thanks To Them For Making It Possible</div>
+                <div class="partner-head-desc">From Our Beloved💜Sponsors</div>
+            </div>
+            <!-- -------------------------------------------- -->
+            <div class="partners">
+                <img src="assets/images/logo1.png" alt="partner">
+                <img src="assets/images/logo2.png" alt="partner">
+                <img src="assets/images/logo3.png" alt="partner">
+                <img src="assets/images/logo4.png" alt="partner">
+                <img src="assets/images/logo5.png" alt="partner">
+                <img src="assets/images/logo6.png" alt="partner">
+                <img src="assets/images/logo7.png" alt="partner">
+            </div>
 
-
-
-        
+        </section>
     </main>
 
-    <!-- <footer class="footer-box">
-        
-    </footer> -->
+    <footer class="footer-box">
+        <div class="foot-container">
+            <div class="foot-left-box">
+                <img src="/frontend_files/assets/images/favicon.jpeg" alt="">
+            </div>
+            <div class="foot-right-box"></div>
+        </div>
+        <div class="foot-bottom">Made With 💛 By <a href="https://www.linkedin.com/in/aditya-sahu-487a0a332">YoursTrulyAdi</a></div>
+    </footer>
 
     <!-- connecting main.js -->
     <script src="assets/js/main.js"></script>

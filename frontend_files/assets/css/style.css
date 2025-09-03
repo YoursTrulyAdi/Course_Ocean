@@ -146,6 +146,35 @@ body{
 
 }
 
+/* ----------------------------------------------------------- */
+.main-box .floating-arrow{
+    position: absolute;
+    left: 50%;
+    bottom: -350px;
+
+    transform: translateX(-50%);
+    cursor: pointer;
+    animation: floatUpDown 2s ease-in-out infinite;
+
+}
+
+@keyframes floatUpDown {
+  0% { transform: translate(-80%, 0); }
+  50% { transform: translate(-80%, -10px); }
+}
+
+.main-box .floating-arrow a{
+    text-decoration: none;
+    width: 100px;
+    height: 100px;
+}
+.main-box .floating-arrow a img{
+    width: 50px;
+    height: 100px;
+}
+
+/* ----------------------------------------------------------- */
+
 /* wave animations */
 .main-box .wave-container{
     border: 2px solid lawngreen;
@@ -170,7 +199,8 @@ body{
     background-color: var(--backgroud-color);
 
     margin: 58vh 0 0 0;
-    height: auto;/*change it to auto later*/
+    padding: 0 0 100px 0;
+    height: auto;
 }
 
 .main-box .course-box-head{
@@ -249,31 +279,180 @@ body{
 /* our partners styles */
 .main-box .main-partner-container .partner-head{
     border: 2px solid blue;
-    background-color: var(--background-color-light);
 
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 50px 0;
+    margin: 100px 0;
 }
 .main-box .main-partner-container .partner-head-heading{
     border: 2px solid brown;
 
     font-size: 20px;
-    color: var(--font-color);
+    color: var(--backgroud-color);
 }
 .main-box .main-partner-container .partner-head-desc{
     border: 2px solid brown;
 
     font-size: 40px;
     font-weight: bolder;
-    color: var(--font-color);
+    color: var(--backgroud-color);
+}
+
+.partners {
+  background: #f8f7f4;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 100px 0;
+
+
+}
+
+.partners img {
+  height: 100px;
+  margin: 0 20px;
+  vertical-align: middle;
 }
 
 
-/* Footer section */
-/* .footer-box{
 
-} */
+/* Footer section */
+.footer-box{
+    background-color: var(--backgroud-color);
+    border: 2px solid red;
+}
+
+.footer-box .foot-container{
+    border: 2px solid pink;
+    height: 25vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.footer-box .foot-container .foot-left-box{
+    border: 2px solid green;
+    border-right: 2px dashed var(--background-color-light);
+    height: 100%;
+    width: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-box .foot-container .foot-left-box img{
+    width: 150px;
+}
+.footer-box .foot-container .foot-right-box{
+    border: 2px solid green;
+    height: 100%;
+    width: 45%;
+}
+
+.footer-box .foot-bottom{
+    text-align: center;
+    border: 2px solid blue;
+    border-top: 2px dashed var(--background-color-light);
+
+    font-size: 20px;
+    font-weight: bold;
+}
+.footer-box .foot-bottom a{
+    text-decoration: none;
+    color: inherit;
+    font-style: italic;
+    font-size: 20px;
+}
+
+
+
+/* ---------------------------------------------------- */
+/* login styles starts */
+
+.main-container{
+    background-color: var(--background-color-light);
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .login-box{
+    border: 2px solid red;
+
+    width: 700px;
+    height: 700px;
+    padding: 15px;
+    border-radius: 20px;
+}
+.main-container .login-box .loginbox-head{
+    border: 2px solid blue;
+
+    height: 12vh;
+    display: flex;
+    align-items: center;
+}
+.main-container .login-box .loginbox-head h1{
+    font-size: 45px;
+}
+
+.main-container .login-box .loginbox-body{
+    border: 2px solid black;
+
+    height: 45vh;
+}
+.main-container .login-box .loginbox-body form {
+    border: 2px solid pink;
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+form label{
+    position: relative;
+    top: 20px;
+    left: 10px;
+
+    width: max-content;
+    background-color: var(--background-color-light);
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Submit button */
+form button {
+    background: #433878;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 35px 0;
+}
+
+form button:hover {
+    background: #5a4b9c;
+}
+
+/*  */
+.loginbox-body .admin-choose{
+    
+}
+.loginbox-body .admin-choose a{
+    
+}

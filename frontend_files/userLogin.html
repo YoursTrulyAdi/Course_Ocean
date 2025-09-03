@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User | Login</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="login-box">
+            <div class="loginbox-head">
+                <h1>User | Login</h1>
+            </div>
+            <div class="loginbox-body">
+                <form action="/submit" method="POST">
+                    <!-- Email input -->
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Eg: someone@some.com" required>
+
+                    <!-- Password input -->
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <!-- Submit button -->
+                    <button type="submit">Submit</button>
+                </form>
+
+                <div class="admin-choose">
+                    <a href="">Are You An Admin?</a>
+                </div>
+                <div class="signup-choose">
+                    <h4>Not a user?</h4>
+                    <a href="">Sign up instead</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
