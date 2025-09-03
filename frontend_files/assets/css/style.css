@@ -60,13 +60,8 @@ body{
     right: 75px;
     z-index: 10;
 }
-.header-box .nav-container .login-btn{
-    border: 2px solid cyan;
-    
-    
-}
 
-.login-btn button{
+.login-button button{
     border: none;
     background: none;
 
@@ -302,20 +297,19 @@ body{
 }
 
 .partners {
-  background: #f8f7f4;
+    background: #f8f7f4;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin: 100px 0;
-
-
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 100px 0;
+    overflow: auto;
 }
 
 .partners img {
-  height: 100px;
-  margin: 0 20px;
-  vertical-align: middle;
+    height: 100px;
+    margin: 0 20px;
+    vertical-align: middle;
 }
 
 
@@ -373,7 +367,7 @@ body{
 
 
 /* ---------------------------------------------------- */
-/* login styles starts */
+/* User Sign in styles starts */
 
 .main-container{
     background-color: var(--background-color-light);
@@ -385,7 +379,7 @@ body{
     align-items: center;
 }
 
-.main-container .login-box{
+.main-container .signin-box{
     border: 2px solid red;
 
     width: 700px;
@@ -393,23 +387,23 @@ body{
     padding: 15px;
     border-radius: 20px;
 }
-.main-container .login-box .loginbox-head{
+.main-container .signin-box .signinbox-head{
     border: 2px solid blue;
 
     height: 12vh;
     display: flex;
     align-items: center;
 }
-.main-container .login-box .loginbox-head h1{
+.main-container .signin-box .signinbox-head h1{
     font-size: 45px;
 }
 
-.main-container .login-box .loginbox-body{
+.main-container .signin-box .signinbox-body{
     border: 2px solid black;
 
-    height: 45vh;
+    height: auto;
 }
-.main-container .login-box .loginbox-body form {
+.main-container .signin-box .signinbox-body form {
     border: 2px solid pink;
     padding: 10px;
     
@@ -450,9 +444,263 @@ form button:hover {
 }
 
 /*  */
-.loginbox-body .admin-choose{
-    
+.signinbox-body .signup-choose{
+    border: 2px solid blue;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
 }
-.loginbox-body .admin-choose a{
+.signinbox-body .signup-choose h4{
+    font-weight: lighter;
+    border: 2px solid pink;
+    width: max-content;
+}
+.signinbox-body .signup-choose a{
+    text-decoration: none;
+    border: 2px solid pink;
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--backgroud-color);
+}
+
+.signinbox-body .admin-choose{
+    border: 2px solid red;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.signinbox-body .admin-choose h4{
+    font-weight: lighter;
+    border: 2px solid pink;
+    width: max-content;
+}
+.signinbox-body .admin-choose a{
+    text-decoration: none;
+    border: 2px solid pink;
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--backgroud-color);
+}
+
+
+/* User Sign up styles starts */
+.main-container .signup-box{
+    border: 2px solid red;
+
+    width: 700px;
+    height: 700px;
+    padding: 15px;
+    border-radius: 20px;
+}
+.main-container .signup-box .signupbox-head{
+    border: 2px solid blue;
+
+    height: 12vh;
+    display: flex;
+    align-items: center;
+}
+.main-container .signup-box .signupbox-head h1{
+    font-size: 45px;
+}
+
+.main-container .signup-box .signupbox-body{
+    border: 2px solid black;
+
+    height: auto;
+}
+.main-container .signup-box .signupbox-body form {
+    border: 2px solid pink;
+    padding: 10px;
     
+    display: flex;
+    flex-direction: column;
+}
+
+form label{
+    position: relative;
+    top: 20px;
+    left: 10px;
+
+    width: max-content;
+    background-color: var(--background-color-light);
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Submit button */
+form button {
+    background: #433878;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 35px 0;
+}
+
+form button:hover {
+    background: #5a4b9c;
+}
+
+
+.signupbox-body .signin-choose{
+    border: 2px solid blue;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+.signupbox-body .signin-choose h4{
+    font-weight: lighter;
+    border: 2px solid pink;
+    width: max-content;
+}
+.signupbox-body .signin-choose a{
+    text-decoration: none;
+    border: 2px solid pink;
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--backgroud-color);
+}
+
+.signupbox-body .admin-choose{
+    border: 2px solid red;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.signupbox-body .admin-choose h4{
+    font-weight: lighter;
+    border: 2px solid pink;
+    width: max-content;
+}
+.signupbox-body .admin-choose a{
+    text-decoration: none;
+    border: 2px solid pink;
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--backgroud-color);
+}
+
+
+
+/* Admin Sign in styles starts */
+.main-container .adminsignin-box{
+    border: 2px solid red;
+
+    width: 700px;
+    height: 700px;
+    padding: 15px;
+    border-radius: 20px;
+}
+.main-container .adminsignin-box .adminsigninbox-head{
+    border: 2px solid blue;
+
+    height: 12vh;
+    display: flex;
+    align-items: center;
+}
+.main-container .adminsignin-box .adminsigninbox-head h1{
+    font-size: 45px;
+}
+
+.main-container .adminsignin-box .adminsigninbox-body{
+    border: 2px solid black;
+
+    height: auto;
+}
+.main-container .adminsignin-box .adminsigninbox-body form {
+    border: 2px solid pink;
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+form label{
+    position: relative;
+    top: 20px;
+    left: 10px;
+
+    width: max-content;
+    background-color: var(--background-color-light);
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Submit button */
+form button {
+    background: #433878;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 35px 0;
+}
+
+form button:hover {
+    background: #5a4b9c;
+}
+
+/*  */
+.adminsigninbox-body .user-choose{
+    border: 2px solid blue;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+.adminsigninbox-body .user-choose h4{
+    font-weight: lighter;
+    border: 2px solid pink;
+    width: max-content;
+}
+.adminsigninbox-body .user-choose a{
+    text-decoration: none;
+    border: 2px solid pink;
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--backgroud-color);
+}
+
+.adminsigninbox-body .user-choose{
+    border: 2px solid red;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.adminsigninbox-body .user-choose h4{
+    font-weight: lighter;
+    border: 2px solid pink;
+    width: max-content;
+}
+.adminsigninbox-body .user-choose a{
+    text-decoration: none;
+    border: 2px solid pink;
+    font-style: italic;
+    text-decoration: underline;
+    color: var(--backgroud-color);
 }
