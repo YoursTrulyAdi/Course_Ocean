@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const z = require("zod");
+const cors = require("cors");
 require("dotenv").config();
 
 //importing schemas
@@ -39,22 +40,25 @@ mongoose.connect(process.env.MONGO_URL);
 const app = express();
 app.use(express.json());
 
+//connecting cors
+app.use(cors());
+
 //declaring jwt_secret
 const JWT_SECRET = process.env.JWT_SECRET;
 
 //authentication middlewares
 async function userAuth(req, res, next){
     let token = req.headers.authorization;
-
+    
     let decoded = jwt.verify(token, JWT_SECRET);
-
+    
     const user = await userModel.findOne({
         email: decoded.email
     })
-
+    
     if(user){
         req.userId = user._id;
-
+        
         next();
     }
     else{
@@ -85,9 +89,8 @@ async function adminAuth(req, res, next){
     }
 }
 
-
 //user endpoints
-app.post("/user/signup", async (req, res) => {
+app.post("/api/user/signup", async (req, res) => {
     let parsed = signupSchemaUser.safeParse(req.body);
 
     if(!parsed.success){
@@ -126,7 +129,7 @@ app.post("/user/signup", async (req, res) => {
     })
 })
 
-app.post("/user/signin", async (req, res) => {
+app.post("/api/user/signin", async (req, res) => {
     let parsed = signinSchemaUser.safeParse(req.body);
 
     if(!parsed.success){
@@ -170,14 +173,14 @@ app.post("/user/signin", async (req, res) => {
     }
 })
 
-app.post("/user/course", userAuth, (req, res) => {
+app.post("/api/user/course", userAuth, (req, res) => {
     res.json({
         msg: "This is purshaseCourse",
         userId: req.userId
     })
 })
 
-app.get("/user/course", (req, res) => {
+app.get("/api/user/course", (req, res) => {
     res.json({
         msg: "This is viewCourse"
     })
@@ -185,7 +188,7 @@ app.get("/user/course", (req, res) => {
 
 
 //admin endpoints
-app.post("/admin/signup", async (req, res) => {
+app.post("/api/admin/signup", async (req, res) => {
     let parsed = signupSchemaAdmin.safeParse(req.body);
 
     if(!parsed.success){
@@ -225,7 +228,7 @@ app.post("/admin/signup", async (req, res) => {
     })
 })
 
-app.post("/admin/signin", async (req, res) => {
+app.post("/api/admin/signin", async (req, res) => {
     let parsed = signinSchemaAdmin.safeParse(req.body);
 
     if(!parsed.success){
@@ -268,25 +271,24 @@ app.post("/admin/signin", async (req, res) => {
     }
 })
 
-//send a post request to create a course
-app.post("/admin/course", adminAuth, (req, res) => {
+//send a post request to create a course - functionality(endpoints) to add for improvement
+app.post("/api/admin/course", adminAuth, (req, res) => {
     res.json({
         msg: "This is createCourse",
         userId: req.userId
     })
 })
 
-app.delete("/admin/course", (req, res) => {
+app.delete("/api/admin/course", (req, res) => {
     res.json({
         msg: "This is deleteCourse"
     })
 })
 
-app.put("/admin/course", (req, res) => {
+app.put("/api/admin/course", (req, res) => {
     res.json({
         msg: "This is addCourseContent"
     })
 })
-
 
 app.listen(process.env.PORT);

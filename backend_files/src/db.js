@@ -16,10 +16,8 @@ const Admin = new Schema({
     role: {type: String}
 })
 
-
 const userModel = mongoose.model("users", User);
 const adminModel = mongoose.model("admins", Admin);
-
 
 module.exports = {
     userModel: userModel,
