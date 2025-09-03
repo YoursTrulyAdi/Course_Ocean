@@ -14,18 +14,18 @@
   >Minimalistic and user-friendly interface.
 
 - **Password Handling**  
- > - Passwords are stored securely in the database using **Mongoose**.  
- > - All passwords are **hashed using bcrypt** to safeguard user data from attacks.
+  >Passwords are stored securely in the database using **Mongoose**.  
+  >All passwords are **hashed using bcrypt** to safeguard user data from attacks.
 
-- **Validation**  
->   Input validation handled with **Zod**.
+- **Validation**
+  >Input validation handled with **Zod**.
 
 - **Networking**  
->  Frontend communicates with the backend using **Axios** to send `GET`, `POST`, etc. requests.
+  >Frontend communicates with the backend using **Axios** to send `GET`, `POST`, etc. requests.
 
 - **Security**  
->  Backend has **CORS support** for safe cross-origin requests.
->  Add **JWT authentication** for secure session handling.
+  >Backend has **CORS support** for safe cross-origin requests.
+  >Add **JWT authentication** for secure session handling.
 
 ---
 
