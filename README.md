@@ -39,13 +39,6 @@
 
 ---
 
-## 🖼️ Screenshots (UI Example)
-![Signup Page](./screenshots/signup.png)
-![Signin Page](./screenshots/signin.png)
-![Admin Dashboard](./screenshots/admin-dashboard.png)
-
----
-
 ## ✅ Next Steps
 - Add **course management features** for admins (edit/delete courses).  
 - Add a **Dashboard** for users and admins.
