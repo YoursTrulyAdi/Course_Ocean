@@ -4,8 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
+
+    <!-- linking font family -->
+    <style>@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');</style>
+
+    <!-- linking css -->
+    <link rel="stylesheet" href="/frontend_files/assets/css/styleDash.css">
 </head>
 <body>
-    <h1 style="font-size: 100px; color: purple;">User Dashboard</h1>
+    <section class="header">
+        <div class="icon-box">
+            <h1>Course Ocean</h1>
+        </div>
+        <div class="user-detail">
+            <h2 class="user-name">Welcome Back, NAME</h2>
+            
+            <div class="nav-container">
+                <div class="user-pic">
+                    <img src="/frontend_files/assets/images/profile.jpg" alt="">
+                </div>
+                <button class="signout-btn">Sign Out</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <div class="course-container">
+            <div class="course-card" data-video="IJ85kCdqWao">
+                <a class="course-card-thumb">
+                    <img src="https://img.youtube.com/vi/IJ85kCdqWao/maxresdefault.jpg" alt="image">
+                </a>
+                <h3 class="course-card-head">React Course for Beginners w/ Tailwind CSS</h3>
+                <p class="course-card-desc">Begin React: learn components, props, hooks, Tailwind styling. Build responsive interfaces, improve design, boost skills, and gain confidence fast.</p>
+            </div>
+            <div class="course-card" data-video="do62-z3z6FM">
+                <a class="course-card-thumb">
+                    <img src="https://img.youtube.com/vi/do62-z3z6FM/maxresdefault.jpg" alt="image">
+                </a>
+                <h3 class="course-card-head">Vite Crash Course - Frontend Build Tool</h3>
+                <p class="course-card-desc">Master Vite: learn fast setup, HMR, optimized builds, efficient workflows. Supercharge React, Vue, or vanilla JavaScript applications with ease.</p>
+            </div>
+            <div class="course-card" data-video="ObiAWFqgpMg">
+                <a class="course-card-thumb">
+                    <img src="https://img.youtube.com/vi/ObiAWFqgpMg/maxresdefault.jpg" alt="image">
+                </a>
+                <h3 class="course-card-head">Build and Deploy a Polished AI Project and Get Sales</h3>
+                <p class="course-card-desc">Design, build, deploy AI projects. Learn strategies to polish, present effectively, and generate sales with technical, business, and marketing skills.</p>
+            </div>
+        </div>
+
+
+        <!-- Video Modal -->
+        <div class="video-modal" id="videoModal">
+        <div class="video-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <iframe id="yt-player" width="800" height="450" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+            </iframe>
+        </div>
+        </div>
+    </main>
+
+    <!-- linking the script for api and axios as (import doesn't work - it will work in react ES6) -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/frontend_files/assets/js/userDash.js" defer></script>
+    <!-- <script src="/frontend_files/assets/js/api.js"></script> -->
 </body>
 </html>

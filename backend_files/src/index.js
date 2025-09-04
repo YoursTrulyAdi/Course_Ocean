@@ -12,25 +12,25 @@ const {userModel, adminModel} = require("./db");
 //declaring schemas for zod
 const signupSchemaUser = z.object({
     email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
-    password: z.string().min(6).max(100),
+    password: z.string().min(1).max(100),
     name: z.string().min(2).max(50)
 });
 
 const signinSchemaUser = z.object({
     email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
-    password: z.string().min(6).max(100)
+    password: z.string().min(1).max(100)
 });
 
 const signupSchemaAdmin = z.object({
     email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
-    password: z.string().min(6).max(100),
+    password: z.string().min(1).max(100),
     name: z.string().min(2).max(50),
     role: z.string().min(2).max(20)
 });
 
 const signinSchemaAdmin = z.object({
     email: z.string().regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
-    password: z.string().min(6).max(100)
+    password: z.string().min(1).max(100)
 });
 
 //connecting to mongoose
@@ -88,6 +88,35 @@ async function adminAuth(req, res, next){
         })
     }
 }
+
+//getting the name
+async function getName(req, res, next) {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+      return res.status(401).json({ err: "No token provided" });
+    }
+
+    const token = authHeader.split(" ")[1];
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    const user = await userModel.findOne({ email: decoded.email });
+    if (!user) {
+      return res.status(404).json({ err: "User not found" });
+    }
+
+    req.user = user;
+    next();
+  } catch (error) {
+    res.status(401).json({ err: "Invalid token" });
+  }
+}
+
+// route to get name
+app.get("/api/user/name", getName, (req, res) => {
+  res.json({ name: req.user.name });
+});
+
 
 //user endpoints
 app.post("/api/user/signup", async (req, res) => {

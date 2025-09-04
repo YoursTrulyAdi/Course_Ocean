@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: "Delius", cursive;
     font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 :root{
@@ -240,6 +241,8 @@ body{
     height: 426px;
     width: 368px;
     overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     
     border-radius: 20px;
 }
@@ -248,7 +251,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
 }
 .course-card .course-card-thumb img{
     width: 100%;
@@ -349,6 +351,30 @@ body{
     /* border: 2px solid green; */
     height: 100%;
     width: 45%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.footer-box .foot-container .foot-right-box ul{
+    /* border: 2px solid blue; */
+    width: max-content;
+    color: var(--font-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.footer-box .foot-container .foot-right-box li{
+    list-style: none;
+}
+.footer-box .foot-container .foot-right-box li a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 25px;
 }
 
 .footer-box .foot-bottom{
@@ -389,6 +415,9 @@ body{
     height: 700px;
     padding: 15px;
     border-radius: 20px;
+
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 .main-container .signin-box .signinbox-head{
     /* border: 2px solid blue; */
@@ -399,6 +428,7 @@ body{
 }
 .main-container .signin-box .signinbox-head h1{
     font-size: 45px;
+    color: var(--backgroud-color);
 }
 
 .main-container .signin-box .signinbox-body{
@@ -412,38 +442,6 @@ body{
     
     display: flex;
     flex-direction: column;
-}
-
-form label{
-    position: relative;
-    top: 20px;
-    left: 10px;
-
-    width: max-content;
-    background-color: var(--background-color-light);
-}
-
-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-/* Submit button */
-form button {
-    background: #433878;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 35px 0;
-}
-
-form button:hover {
-    background: #5a4b9c;
 }
 
 /*  */
@@ -498,6 +496,8 @@ form button:hover {
     height: 700px;
     padding: 15px;
     border-radius: 20px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 .main-container .signup-box .signupbox-head{
     /* border: 2px solid blue; */
@@ -508,6 +508,7 @@ form button:hover {
 }
 .main-container .signup-box .signupbox-head h1{
     font-size: 45px;
+    color: var(--backgroud-color);
 }
 
 .main-container .signup-box .signupbox-body{
@@ -529,7 +530,7 @@ form label{
     left: 10px;
 
     width: max-content;
-    background-color: var(--background-color-light);
+    background-color: white;
 }
 
 form input {
@@ -538,6 +539,7 @@ form input {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 10px;
+    background-color: var(--background-color-light);
 }
 
 /* Submit button */
@@ -608,6 +610,9 @@ form button:hover {
     height: 700px;
     padding: 15px;
     border-radius: 20px;
+
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);   
 }
 .main-container .adminsignin-box .adminsigninbox-head{
     /* border: 2px solid blue; */
@@ -618,6 +623,7 @@ form button:hover {
 }
 .main-container .adminsignin-box .adminsigninbox-head h1{
     font-size: 45px;
+    color: var(--backgroud-color);
 }
 
 .main-container .adminsignin-box .adminsigninbox-body{
@@ -631,38 +637,6 @@ form button:hover {
     
     display: flex;
     flex-direction: column;
-}
-
-form label{
-    position: relative;
-    top: 20px;
-    left: 10px;
-
-    width: max-content;
-    background-color: var(--background-color-light);
-}
-
-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-/* Submit button */
-form button {
-    background: #433878;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 35px 0;
-}
-
-form button:hover {
-    background: #5a4b9c;
 }
 
 /*  */
@@ -706,4 +680,51 @@ form button:hover {
     font-style: italic;
     text-decoration: underline;
     color: var(--backgroud-color);
+}
+
+
+/* -------------------------------------------------- */
+div.course-card{
+    transition: transform 0.1s linear;
+}
+div.course-card:hover{
+    transform: scale(1.05)
+}
+div.nav-contents{
+    padding: 30px;
+    background-color: var(--backgroud-color);
+    height: 100vh;
+    width: 25vw;
+    position: absolute;
+    top: -78px;
+    right: -600px;
+    transition: right 0.3s linear;
+    opacity: 0.75;
+}
+/* Toggle this class */
+div.nav-contents.active{
+   right: -85px;
+}
+div.nav-contents ul{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+div.nav-contents ul li{
+    list-style: none;
+}
+div.nav-contents ul li a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 40px;
+    color: var(--background-color-light)
+}
+div.nav-contents span{
+    position:absolute;
+    right:25px;
+    top: 10px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
 }

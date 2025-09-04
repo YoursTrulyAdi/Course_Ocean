@@ -12,7 +12,7 @@
     <style>@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');</style>
 
     <!-- linking material icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=dehaze" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <!-- linking style sheet -->
     <link rel="stylesheet" href="/frontend_files/assets/css/style.css">
@@ -25,12 +25,21 @@
         </section>
         <section class="nav-container">
             <div class="login-button">
-                <button>Login</button>
+                <button>Sign In</button>
             </div>
 
+            <!-- Adding the hamburger menu functionality -->
             <div class="nav-hamburger">
+                <div class="nav-contents">
+                <span id="cross" class="material-symbols-outlined">close</span>
+                <ul>
+                    <li><a href="/frontend_files/index.html">Home</a></li>
+                    <li><a href="#target">Courses</a></li>
+                    <li><a href="#target2">Our Partners</a></li>
+                </ul>
+                </div>
                 <button>
-                    <span class="material-symbols-outlined">dehaze</span>
+                    <span id="menu" class="material-symbols-outlined">dehaze</span>
                 </button>
             </div>
         </section>
@@ -99,7 +108,7 @@
         </section>
             
         <!-- our partners html -->
-        <section class="main-partner-container">
+        <section class="main-partner-container" id="target2">
             <div class="partner-head">
                 <div class="partner-head-heading">Thanks To Them For Making It Possible</div>
                 <div class="partner-head-desc">From Our Beloved💜Sponsors</div>
@@ -123,7 +132,13 @@
             <div class="foot-left-box">
                 <img src="/frontend_files/assets/images/favicon.jpeg" alt="">
             </div>
-            <div class="foot-right-box"></div>
+            <div class="foot-right-box">
+                <ul>
+                    <li><a href="/frontend_files/index.html">Home</a></li>
+                    <li><a href="#target">Courses</a></li>
+                    <li><a href="#target2">Partners</a></li>
+                </ul>
+            </div>
         </div>
         <div class="foot-bottom">Made With 💛 By <a href="https://www.linkedin.com/in/aditya-sahu-487a0a332">YoursTrulyAdi</a></div>
     </footer>

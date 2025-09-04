@@ -20,8 +20,11 @@ if (userSignupForm) {
 
             console.log(response.data);
             console.log("✅ Successful Sign Up");
+            alert("✅ Successful Sign Up");
+            window.location.href = "/frontend_files/userSignin.html";
         } catch (error) {
             console.error("❌ Error occurred:", error.response?.data || error.message);
+            alert("❌ Some error occured")
         }
     });
 }
@@ -44,8 +47,10 @@ if (userSigninForm) {
             window.location.href = "/frontend_files/userDashboard.html";
 
             console.log(response.data.token);
+            alert("✅ Successful Sign In");
         } catch (error) {
             console.log("Some error occured in user Signin");
+            alert("❌ Some error occured")
         }
     });
 }
@@ -69,8 +74,10 @@ if (adminSigninForm) {
             window.location.href = "/frontend_files/adminDashboard.html";
 
             console.log(response.data.token);
+            alert("✅ Successful Sign In, Welcome ADMIN");
         } catch (error) {
             console.log("Some error occured in user Signin");
+            alert("❌ Some error occured")
         }
     });
 }
